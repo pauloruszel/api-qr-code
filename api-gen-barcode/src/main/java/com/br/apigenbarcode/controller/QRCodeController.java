@@ -29,7 +29,7 @@ public class QRCodeController {
 
     @GetMapping("/qrcode")
     public Mono<ResponseEntity<?>> generateQRCode(final QRCodeRequest request) throws Exception {
-        log.info("Recebendo requisição para gerar QR Code");
+        log.info("Recebendo requisicao para gerar QR Code");
 
         var qrCode = qrCodeService.gerarQRCode(request.texto(), request.scale(), request.foreground(), request.background());
 

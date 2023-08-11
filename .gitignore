@@ -1,0 +1,50 @@
+# Arquivos e diretórios do sistema
+.DS_Store
+Thumbs.db
+
+# Diretórios de node (frontend Angular)
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+yarn.lock
+
+# Build e diretórios de distribuição (frontend Angular)
+/dist/
+/build/
+
+# Arquivos e diretórios de IDEs (IntelliJ IDEA)
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# Diretórios de build e target (backend Java)
+target/
+
+# Logs
+*.log
+
+# Outros arquivos e diretórios comuns a serem ignorados
+*.o
+*.rej
+*.save
+
+# Arquivos específicos do Maven
+!.mvn/wrapper/maven-wrapper.jar
+
+# Arquivos e diretórios específicos do STS
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+# NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/

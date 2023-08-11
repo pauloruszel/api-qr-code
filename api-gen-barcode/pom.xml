@@ -6,13 +6,13 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>3.1.2</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath>../pom.xml</relativePath>
 	</parent>
 	<groupId>com.br</groupId>
 	<artifactId>api-gen-barcode</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>api-gen-barcode</name>
-	<description>Api para gerar QR Codes, que retorna imagem png ou json com o QR Code.</description>
+	<description>Módulo backend do Gerador QR Code</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
