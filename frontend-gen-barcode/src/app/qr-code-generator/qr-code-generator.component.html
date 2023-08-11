@@ -1,0 +1,66 @@
+<form [formGroup]="qrCodeForm" class="qr-code-form">
+  <h1>Gerador de QR Code</h1>
+  <mat-card class="container">
+    <mat-card-content>
+      <mat-form-field class="full-width-field" appearance="outline">
+        <mat-label>Conteúdo do QR Code</mat-label>
+        <label>
+          <input matInput type="text" formControlName="texto">
+        </label>
+        <mat-error *ngIf="hasErros('texto', 'espacosEmBranco')">O texto não pode conter apenas espaços em branco.</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="full-width-field" appearance="outline">
+        <mat-label>Tamanho do QR Code</mat-label>
+        <label>
+          <input matInput type="number" formControlName="scale">
+        </label>
+      </mat-form-field>
+
+      <mat-hint>Escolha as cores de fora e de dentro do QR Code:</mat-hint>
+
+      <table class="full-width-field" cellspacing="0">
+        <tr>
+          <td>
+            <mat-form-field class="full-width-field">
+              <mat-label>Cor do Código</mat-label>
+              <input matInput type="color" formControlName="foregroundColor">
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field class="full-width-field">
+              <mat-label>Cor de Fundo</mat-label>
+              <input matInput type="color" formControlName="backgroundColor">
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
+
+      <div class="action-container">
+        <mat-checkbox class="action-item" formControlName="isDownloadChecked" (change)="onDownloadCheckboxClick()">Download</mat-checkbox>
+        <mat-checkbox class="action-item" formControlName="isBase64Checked" (change)="onBase64CheckboxClick()">Base64</mat-checkbox>
+        <button mat-raised-button class="action-item generate-btn" color="primary" (click)="geradorQrCode()" [disabled]="!qrCodeForm.valid">Gerar QR Code</button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <!-- Mat Card para qrCodeImage -->
+  <mat-card *ngIf="qrCodeImage && !qrCodeBase64" class="qr-code-display">
+    <mat-card-title>QR Code Gerado</mat-card-title>
+    <mat-card-content fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="16px">
+      <img [src]="qrCodeImage" alt="Generated QR Code">
+      <button mat-raised-button (click)="downloadQrCode()">Download QR Code</button>
+    </mat-card-content>
+  </mat-card>
+
+  <!-- Mat Card para qrCodeBase64 -->
+  <mat-card *ngIf="qrCodeBase64 && !qrCodeImage" class="qr-code-display">
+    <mat-card-title>QR Code (Base64)</mat-card-title>
+    <mat-card-content fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="16px">
+      <mat-form-field>
+        <textarea matInput readonly #qrCodeTextArea>{{qrCodeBase64}}</textarea>
+      </mat-form-field>
+      <button mat-raised-button (click)="copyToClipboard(qrCodeTextArea)">Copiar</button>
+    </mat-card-content>
+  </mat-card>
+</form>

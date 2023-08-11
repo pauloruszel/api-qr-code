@@ -1,0 +1,132 @@
+// Variáveis
+$padding: 16px;
+$mobile-breakpoint: 768px; 
+$primary-color: #4CAF50; 
+$shadow-color: rgba(0, 0, 0, 0.5);
+
+.qr-code-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: $padding;
+  box-sizing: border-box;
+
+  h1 {
+    color: $primary-color;
+    font-weight: 500;
+    margin-bottom: $padding;
+  }
+
+  .container {
+    max-width: 600px;
+    width: 100%;
+    margin-bottom: $padding;
+  }
+
+  .full-width-field {
+    width: 100%;
+    margin-bottom: $padding;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  td {
+    padding-right: $padding;
+    vertical-align: top; 
+  }
+
+  .action-item {
+    display: inline-block; 
+    margin-right: $padding; 
+
+    &:last-child {
+      margin-right: 0; 
+    }
+  }
+
+  // Responsividade
+  @media (max-width: $mobile-breakpoint) {
+    padding: calc(#{$padding} / 2);
+
+    td {
+      padding-right: calc(#{$padding} / 2);
+    }
+  }
+}
+
+// Estilização do Textarea
+textarea {
+  border: 1px solid lighten($shadow-color, 20%); // Bordas mais leves
+  padding: 8px; // Padding reduzido para melhor alinhamento
+  height: 150px; 
+  width: calc(100% - 2 * 8px); // Ajuste de largura considerando o padding
+  box-shadow: 0 2px 4px lighten($shadow-color, 10%); // Sombra mais suave
+  font-family: 'Courier New', monospace; 
+  overflow-y: auto; 
+  border-radius: 4px; // Bordas arredondadas para se alinhar com o design geral
+}
+
+// Responsividade para Textarea
+@media (max-width: $mobile-breakpoint) {
+  textarea {
+    padding: 5px;
+    height: 100px;
+    width: calc(100% - 2 * 5px); // Ajuste de largura considerando o padding
+  }
+}
+
+// Estilização da Div qrCodeImage
+.qr-code-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: $padding 0;
+  padding: $padding;
+  background-color: #f9f9f9; 
+  box-shadow: 0 4px 8px $shadow-color;
+  border-radius: 8px; 
+  max-width: 600px; 
+  width: 100%;
+
+  img {
+    max-width: 90%; 
+    margin-bottom: calc(#{$padding} * 1.5); 
+  }
+
+  button {
+    margin-top: calc(#{$padding} / 2); 
+    background-color: $primary-color;
+    color: white;
+
+    &:hover {
+      background-color: darken($primary-color, 10%);
+    }
+  }
+
+  // Responsividade
+  @media (max-width: $mobile-breakpoint) {
+    img {
+      margin-bottom: $padding * 2; 
+    }
+  }
+}
+
+.action-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+
+  .generate-btn {
+    margin-left: auto; // Isso empurrará o botão para a direita
+  }
+}
+
+mat-hint {
+  display: block;
+  width: calc(100% - 2 * 5px);
+  font-style: italic; // Estilo itálico para diferenciar o hint
+}
