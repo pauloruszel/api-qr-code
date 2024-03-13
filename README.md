@@ -64,7 +64,7 @@ mvn clean package
 ```bash
 docker-compose up --build
 ```
-A API estará disponível em http://localhost:8080.
+A API estará disponível em http://localhost/
 
 ## Testes unitários
 Para rodar os testes unitários, execute o comando abaixo:
