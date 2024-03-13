@@ -3,7 +3,7 @@ version: '3.9'
 services:
   api:
     build:
-      context: api-gen-barcode
+      context: ./api-gen-barcode
       dockerfile: Dockerfile
     ports:
       - "8080:8080"
@@ -14,7 +14,7 @@ services:
 
   frontend:
     build:
-      context: frontend-gen-barcode
+      context: ./frontend-gen-barcode
       dockerfile: Dockerfile
     ports:
       - "80:80"
